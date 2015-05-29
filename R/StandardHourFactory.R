@@ -1,0 +1,1 @@
+StandardHourFactory<-R6Class()

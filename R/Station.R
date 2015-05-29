@@ -1,0 +1,74 @@
+
+#TODO: Validación de tipos
+Station<-R6Class('Station',portable=F,
+                 private=list(
+                   downloader="Downloader",
+                   code="character",
+                   name="character",
+                   #coordinates="Coordinates",
+                   elevation="numeric",
+                   height="numeric",
+                   province="character",
+                   hourList="HourList",
+                   selectDownloader=function(pProvince)
+                   {
+                     if(pProvince=="1" || pProvince=="3")
+                     {
+                       private$downloader=DownloaderEuskadi$getInstance();
+                     }
+                     else
+                     {
+                       if(pProvince=="4")
+                       {
+                         private$downloader=DownloaderRioja$getInstance();
+                       }
+                       else
+                         private$downloader=NULL;
+                     }
+                   }
+                   ),
+                 public=list(
+                  initialize=function(pCode,pName,pElevation,pHeight,pProvince)
+                    {
+                    private$code=pCode;
+                    private$name=pName;
+                    private$elevation=pElevation;
+                    private$height=pHeight;
+                    private$hourList=HourList$new();
+                    private$province=pProvince;
+
+                    private$selectDownloader(pProvince);
+                  },
+                  getHour=function(pDate)
+                    {
+                    hour=private$hourList$getHour(pDate);
+                    if(is.null(hour))
+                    {
+                      hour=DatabaseManager$getInstance()$getHour(self,pDate);
+                      if(is.null(hour))
+                      {
+                        if(private$downloader!=NULL)
+                          hour=private$downloader$getHour(self,pDate);
+                      }
+                      if(!is.null(hour))
+                      {
+                        private$hourList$addHour(hour);
+                      }
+                    }
+                    return(hour);
+                      
+                  },
+                  getCode=function(){
+                    return(private$code);
+                  },
+                  getDownloader=function(){
+                    return(private$downloader);
+                  },
+                  getElevation=function(){
+                    return(private$elevation);
+                  },
+                  getHeight=function(){
+                    return(private$height);
+                  }
+                  )
+)

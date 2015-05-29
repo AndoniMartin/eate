@@ -1,0 +1,21 @@
+StandardHour<-R6Class("StandardHour",portable=F,
+                      private=list(
+                        hour="Hour",
+                        #coordinates="coordinates"
+                        elevation="Numeric",
+                        height="Numeric"
+                        ),
+                      public=list(
+                        initialize=function(pStation,pHour)
+                          {
+                          private$hour=pHour;
+                          private$elevation=pStation$getElevation();
+                          private$height=pStation$getHeight();
+                        },
+                        getHour=function(){
+                          return(private$hour);
+                        },
+                        getStation=function(){
+                          return(private$station);
+                        })
+                      )
