@@ -1,12 +1,12 @@
 Package: Eate
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: An approach to wind speed and direction prediction in the Basque Country.
+Version: 0.0.1
 Date: 2015-05-29
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Andoni Martín 
+Maintainer: amartin108@ehu.eus
+Description: 
+License: GPLv3
 Collate:
     'Singleton.R'
     'DatabaseManager.R'
