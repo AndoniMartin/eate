@@ -18,13 +18,13 @@ DatabaseManager<-R6Class("SingletonContainer",
                                                {
                                                  if(pProvince=="1" || pProvince=="3")
                                                  {
-                                                   return(downloader=DownloaderEuskadi$getInstance());
+                                                   return(DownloaderEuskadi$getInstance());
                                                  }
                                                  else
                                                  {
                                                    if(pProvince=="4")
                                                    {
-                                                     return(downloader=DownloaderRioja$getInstance());
+                                                     return(DownloaderRioja$getInstance());
                                                    }
                                                    else
                                                      return(NULL);

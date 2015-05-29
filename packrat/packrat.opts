@@ -9,5 +9,7 @@ external.packages:
     hash
     RSQLite
     R6
+    XML
+    RCurl
 local.repos: 
 load.external.packages.on.startup: TRUE

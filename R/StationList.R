@@ -23,7 +23,7 @@ StationList<-R6Class("SingletonContainer",
                                            dumpHourList=function(pDate)
                                            {
                                              #TODO: Dump hours standard formated.
-                                             standardHourList<-foreach(i=1:private$length,.errorhandling=c("remove")) %dopar%
+                                             standardHourList<-foreach(i=1:length(getList()),.errorhandling=c("remove")) %do%
                                               {
                                                 station=private$mList[[i]];
                                                 hour=station$getHour(pDate);

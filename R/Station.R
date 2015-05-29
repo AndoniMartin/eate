@@ -30,8 +30,9 @@ Station<-R6Class('Station',portable=F,
                       hour=DatabaseManager$getInstance()$getHour(self,pDate);
                       if(is.null(hour))
                       {
-                        if(private$downloader!=NULL)
+                        if(!is.null(private$downloader)){
                           hour=private$downloader$getHour(self,pDate);
+                        }
                       }
                       if(!is.null(hour))
                       {

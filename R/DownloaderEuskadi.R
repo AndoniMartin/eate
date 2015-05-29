@@ -2,7 +2,7 @@
 DownloaderEuskadi<-R6Class("SingletonContainer",inherit=Singleton,portable=FALSE,
                            public=list(
                              initialize=function(...)
-                               {
+                             {
                                Class<<-R6Class("DownloaderEuskadi",portable=F,
                                                inherit=Downloader,
                                                public=list(
@@ -14,24 +14,24 @@ DownloaderEuskadi<-R6Class("SingletonContainer",inherit=Singleton,portable=FALSE
                                                    if(nrow(values)>0)
                                                    {
                                                      tryCatch({
-                                                     for(column in 1:nrow(values))
-                                                     {
-                                                       date=Date$new(pDate$getYear(),pDate$getMonth(),pDate$getDay(),pDate$getHour(),10*column-10);
-                                                       speed=as.numeric(sub(",", ".",values[2][column,]));
-                                                       direction=as.numeric(sub(",",".",values[3][column,]));
-                                                       temperature=as.numeric(sub(",", ".", values[7][column,]));
-                                                       newRead<-Read$new(date,speed,direction,temperature);
-                                                       readVector=c(readVector,newRead);
-                                                     }
-                                                     return(super$commitOrError(pStation,readVector))},
-                                                     error=function(e){
-                                                        
-                                                     })
+                                                       for(column in 1:nrow(values))
+                                                       {
+                                                         date=Date$new(pDate$getYear(),pDate$getMonth(),pDate$getDay(),pDate$getHour(),10*column-10);
+                                                         speed=as.numeric(sub(",", ".",values[2][column,]));
+                                                         direction=as.numeric(sub(",",".",values[3][column,]));
+                                                         temperature=as.numeric(sub(",", ".", values[7][column,]));
+                                                         newRead<-Read$new(date,speed,direction,temperature);
+                                                         readVector=c(readVector,newRead);
+                                                       }
+                                                       return(super$commitOrError(pStation,readVector))},
+                                                       error=function(e){
+                                                         
+                                                       })
                                                    }
                                                  }
                                                )
                                )
                                super$initialize();
                              }
-                             )
+                           )
 )$new();
