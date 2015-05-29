@@ -3,8 +3,8 @@ Type: Package
 Title: An approach to wind speed and direction prediction in the Basque Country.
 Version: 0.0.1
 Date: 2015-05-29
-Author: Andoni Martín 
-Maintainer: amartin108@ehu.eus
+Author: Andoni Martín
+Maintainer: Andoni Martín <amartin108@ehu.eus>
 Description: 
 License: GPLv3
 Collate:

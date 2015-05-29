@@ -9,26 +9,10 @@ Station<-R6Class('Station',portable=F,
                    elevation="numeric",
                    height="numeric",
                    province="character",
-                   hourList="HourList",
-                   selectDownloader=function(pProvince)
-                   {
-                     if(pProvince=="1" || pProvince=="3")
-                     {
-                       private$downloader=DownloaderEuskadi$getInstance();
-                     }
-                     else
-                     {
-                       if(pProvince=="4")
-                       {
-                         private$downloader=DownloaderRioja$getInstance();
-                       }
-                       else
-                         private$downloader=NULL;
-                     }
-                   }
+                   hourList="HourList"
                    ),
                  public=list(
-                  initialize=function(pCode,pName,pElevation,pHeight,pProvince)
+                  initialize=function(pCode,pName,pElevation,pHeight,pProvince,pDownloader)
                     {
                     private$code=pCode;
                     private$name=pName;
@@ -36,8 +20,7 @@ Station<-R6Class('Station',portable=F,
                     private$height=pHeight;
                     private$hourList=HourList$new();
                     private$province=pProvince;
-
-                    private$selectDownloader(pProvince);
+                    private$downloader=pDownloader;
                   },
                   getHour=function(pDate)
                     {
