@@ -11,5 +11,6 @@ external.packages:
     R6
     XML
     RCurl
+    devtools
 local.repos: 
 load.external.packages.on.startup: TRUE

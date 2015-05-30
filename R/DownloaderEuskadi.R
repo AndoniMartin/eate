@@ -25,7 +25,7 @@ DownloaderEuskadi<-R6Class("SingletonContainer",inherit=Singleton,portable=FALSE
                                                        }
                                                        return(super$commitOrError(pStation,readVector))},
                                                        error=function(e){
-                                                         
+                                                         print(e);
                                                        })
                                                    }
                                                  }
