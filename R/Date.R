@@ -55,6 +55,10 @@ Date<-R6Class("date",portable=F,
                    {
                      paste(sprintf("%.2d",private$day),sprintf("%.2d",private$month),sprintf("%.2d",private$year),sep="-");
                    },
+                   printDateNoHourNonStandardDash=function()
+                   {
+                     paste(sprintf("%.2d",private$day),sprintf("%.2d",private$month),sprintf("%.2d",private$year),sep="/");
+                   },
                    getYear=function()
                      {
                      return(private$year);
