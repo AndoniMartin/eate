@@ -26,8 +26,12 @@ DatabaseManager<-R6Class("SingletonContainer",
                                                    {
                                                      return(DownloaderRioja$getInstance());
                                                    }
-                                                   else
-                                                     return(NULL);
+                                                   else{
+                                                     if(pProvince=="2"){
+                                                       return(DownloaderNafarroa$getInstance());
+                                                     }else
+                                                      return(NULL);
+                                                   }
                                                  }
                                                },
                                                prepareHourLoadSentence=function(pStation,pDate)
